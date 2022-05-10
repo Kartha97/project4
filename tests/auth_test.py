@@ -17,3 +17,20 @@ def test_auth_pages(client):
     assert response.status_code == 200
     response = client.get("/login")
     assert response.status_code == 200
+
+def test_login(application, client):
+    """Test that a user login functionality works"""
+    with application.app_context():
+        #Add user to be able to test login
+        user = User('test@gmail.com', 'password')
+        db.session.add(user)
+        db.session.commit()
+
+        res = client.post('/login', data=dict(email="test@gmail.com", password='password'), follow_redirects=True)
+        assert res.status_code == 200
+
+        #Test that the user can navigate to the dashboard and that it displays the user
+        dres = client.get("/dashboard", follow_redirects=True)
+        assert b"test" in dres.data
+
+        db.session.delete(user)
