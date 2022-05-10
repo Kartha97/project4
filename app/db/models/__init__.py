@@ -11,14 +11,16 @@ from sqlalchemy_serializer import SerializerMixin
 class Transactions(db.Model,SerializerMixin):
     __tablename__ = 'transactions'
     id = db.Column(db.Integer, primary_key=True)
-    amount = db.Column(db.Integer, nullable=True, unique=False)
-    type = db.Column(db.String(300), nullable=True, unique=False)
+    transaction_type = db.Column(db.String(300), nullable=True, unique=False)
+    transaction_amount = db.Column(db.Integer, nullable=True, unique=False)
+    user_balance = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     user = relationship("User", back_populates="transactions", uselist=False)
 
-    def __init__(self, amount, type):
-        self.type = type
-        self.amount = amount
+    def __init__(self, amount, type, balance):
+        self.transaction_type = type
+        self.transaction_amount = amount
+        self.user_balance = balance
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'

@@ -42,7 +42,7 @@ def transactions_upload():
             csv_file = csv.DictReader(file)
             for row in csv_file:
                 user.balance += int(row['AMOUNT'])
-                list_of_transactions.append(Transactions(row['AMOUNT'],row['TYPE']))
+                list_of_transactions.append(Transactions(row['AMOUNT'],row['TYPE'],user.balance))
 
         current_user.transactions = list_of_transactions
         log.info("Uploaded CSV successfully")
