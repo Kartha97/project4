@@ -1,21 +1,37 @@
 from datetime import datetime
 
+from sqlalchemy import Integer, ForeignKey
+from sqlalchemy.orm import relationship
 from werkzeug.security import check_password_hash, generate_password_hash
 from app.db import db
 from flask_login import UserMixin
+from sqlalchemy_serializer import SerializerMixin
 
+
+class Transactions(db.Model,SerializerMixin):
+    __tablename__ = 'transactions'
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Integer, nullable=True, unique=False)
+    type = db.Column(db.String(300), nullable=True, unique=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = relationship("User", back_populates="transactions", uselist=False)
+
+    def __init__(self, amount, type):
+        self.type = type
+        self.amount = amount
 
 class User(UserMixin, db.Model):
     __tablename__ = 'users'
-
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(300), nullable=False, unique=True)
+    password = db.Column(db.String(300), nullable=False)
+    balance = db.Column(db.Integer, default=0)
     about = db.Column(db.String(300), nullable=True, unique=False)
     authenticated = db.Column(db.Boolean, default=False)
     registered_on = db.Column('registered_on', db.DateTime)
     active = db.Column('is_active', db.Boolean(), nullable=False, server_default='1')
     is_admin = db.Column('is_admin', db.Boolean(), nullable=False, server_default='0')
+    transactions = db.relationship("Transactions", back_populates="user", cascade="all, delete")
 
     # `roles` and `groups` are reserved words that *must* be defined
     # on the `User` model to use group- or role-based authorization.
@@ -45,3 +61,5 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.email
+
+

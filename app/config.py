@@ -3,9 +3,9 @@ import os
 class Config(object):
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     DEBUG = False
-    WTF_CSRF_ENABLED = False
     TESTING = False
     SECRET_KEY = 'This is an INSECURE secret!! DO NOT use this in production!!'
+    WTF_CSRF_ENABLED = False
     SESSION_COOKIE_SECURE = True
     BOOTSTRAP_BOOTSWATCH_THEME = 'Simplex'
     DB_DIR = os.getenv('DB_DIR','database')
@@ -28,3 +28,4 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
     SESSION_COOKIE_SECURE = False
     DEBUG = True
+
