@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: mikeesto/heroku-awake@1.0.0
         with:
-          URL: "https://karthat-project4-prod.herokuapp.com/"
+          URL: "https://karthat-logging-prod.herokuapp.com/"
 
   keep_dev_awake:
     runs-on: ubuntu-latest
@@ -19,4 +19,4 @@ jobs:
     steps:
       - uses: mikeesto/heroku-awake@1.0.0
         with:
-          URL: "https://karthat-project4-dev.herokuapp.com/"
+          URL: "https://karthat-logging-dev.herokuapp.com/"
