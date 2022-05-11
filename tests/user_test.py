@@ -1,5 +1,7 @@
 import logging
-
+import os
+from app.transactions.forms import csv_upload
+import csv
 from app import db
 from app.db.models import User, Transactions
 from faker import Faker
@@ -41,6 +43,33 @@ def test_user_initial_balance_without_any_transactions(application):
         db.session.commit()
         assert user.balance == 0
         db.session.delete(user)
+
+
+def test_user_balance_after_transactions(client, application):
+    with application.app_context():
+        user = User('test@test.com', 'test1234')
+        db.session.add(user)
+        db.session.commit()
+        # Checking initial balance is zero
+        assert user.balance == 0
+        filepath = 'tests/csvtest.csv'
+        testvar = ''
+        with open(filepath, encoding='utf-8-sig') as file:
+            csv_file = csv.DictReader(file)
+            for row in csv_file:
+                user.balance += int(row['AMOUNT'])
+                testvar = row
+            # validating the data that we are uploading.
+            assert testvar == {'AMOUNT': '1000', 'TYPE': 'CREDIT'}
+            upload_res = client.post("/transactions/upload", data=testvar, follow_redirects=True)
+            # Checking if data is being properly uploaded or not.
+            assert upload_res.status_code == 200
+
+        # Validating balance
+        assert user.balance == 1000
+
+
+
 
 
 
