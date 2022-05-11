@@ -18,6 +18,14 @@ def test_auth_pages(client):
     response = client.get("/login")
     assert response.status_code == 200
 
+def test_registration(client):
+    """Test if a user logs in that it redirects to login page"""
+    with client:
+        res = client.post('/register', data=dict(email="test@gmail.com", password='password'), follow_redirects=True)
+        print(res.data)
+        assert res.status_code == 200
+        assert b'href="/login"' in res.data
+
 def test_login(application, client):
     """Test that a user login functionality works"""
     with application.app_context():
