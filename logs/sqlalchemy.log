@@ -563,3 +563,122 @@ FROM users
 WHERE users.id = ?
 2022-05-10 22:53:52,339 [INFO] sqlalchemy.engine.Engine: [cached since 240.8s ago] (1,)
 2022-05-10 22:53:52,355 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:55,893 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:55,894 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("transactions")
+2022-05-10 23:57:55,896 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,897 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("transactions")
+2022-05-10 23:57:55,898 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,900 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-05-10 23:57:55,901 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,902 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-05-10 23:57:55,904 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,905 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	balance INTEGER, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-05-10 23:57:55,906 [INFO] sqlalchemy.engine.Engine: [no key 0.00109s] ()
+2022-05-10 23:57:55,908 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE transactions (
+	id INTEGER NOT NULL, 
+	transaction_type VARCHAR(300), 
+	transaction_amount INTEGER, 
+	user_balance INTEGER NOT NULL, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-05-10 23:57:55,909 [INFO] sqlalchemy.engine.Engine: [no key 0.00114s] ()
+2022-05-10 23:57:55,910 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:55,912 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:55,914 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("transactions")
+2022-05-10 23:57:55,915 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,917 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-05-10 23:57:55,919 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,920 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:55,921 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:55,923 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("transactions")
+2022-05-10 23:57:55,924 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,925 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-05-10 23:57:55,927 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:55,929 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:56,026 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:56,027 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("transactions")
+2022-05-10 23:57:56,028 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,030 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("transactions")
+2022-05-10 23:57:56,031 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,032 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-05-10 23:57:56,033 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,035 [INFO] sqlalchemy.engine.Engine: PRAGMA temp.table_info("users")
+2022-05-10 23:57:56,036 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,038 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE users (
+	id INTEGER NOT NULL, 
+	email VARCHAR(120) NOT NULL, 
+	password VARCHAR(300) NOT NULL, 
+	balance INTEGER, 
+	about VARCHAR(300), 
+	authenticated BOOLEAN, 
+	registered_on DATETIME, 
+	is_active BOOLEAN DEFAULT '1' NOT NULL, 
+	is_admin BOOLEAN DEFAULT '0' NOT NULL, 
+	PRIMARY KEY (id), 
+	UNIQUE (email)
+)
+
+
+2022-05-10 23:57:56,039 [INFO] sqlalchemy.engine.Engine: [no key 0.00133s] ()
+2022-05-10 23:57:56,041 [INFO] sqlalchemy.engine.Engine: 
+CREATE TABLE transactions (
+	id INTEGER NOT NULL, 
+	transaction_type VARCHAR(300), 
+	transaction_amount INTEGER, 
+	user_balance INTEGER NOT NULL, 
+	user_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2022-05-10 23:57:56,042 [INFO] sqlalchemy.engine.Engine: [no key 0.00120s] ()
+2022-05-10 23:57:56,043 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:56,048 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:56,050 [INFO] sqlalchemy.engine.Engine: INSERT INTO users (email, password, balance, about, authenticated, registered_on) VALUES (?, ?, ?, ?, ?, ?)
+2022-05-10 23:57:56,051 [INFO] sqlalchemy.engine.Engine: [generated in 0.00141s] ('test@gmail.com', 'password', 0, None, 0, '2022-05-10 23:57:56.047923')
+2022-05-10 23:57:56,053 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:56,055 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:56,056 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("transactions")
+2022-05-10 23:57:56,058 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,059 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-05-10 23:57:56,061 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,063 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:56,064 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:56,065 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("transactions")
+2022-05-10 23:57:56,067 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,069 [INFO] sqlalchemy.engine.Engine: PRAGMA main.table_info("users")
+2022-05-10 23:57:56,070 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2022-05-10 23:57:56,071 [INFO] sqlalchemy.engine.Engine: COMMIT
+2022-05-10 23:57:56,081 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2022-05-10 23:57:56,083 [INFO] sqlalchemy.engine.Engine: SELECT users.is_active AS users_is_active, users.id AS users_id, users.email AS users_email, users.password AS users_password, users.balance AS users_balance, users.about AS users_about, users.authenticated AS users_authenticated, users.registered_on AS users_registered_on, users.is_admin AS users_is_admin 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2022-05-10 23:57:56,085 [INFO] sqlalchemy.engine.Engine: [generated in 0.00211s] ('test@gmail.com', 1, 0)
+2022-05-10 23:57:56,180 [INFO] sqlalchemy.engine.Engine: SELECT transactions.id AS transactions_id, transactions.transaction_type AS transactions_transaction_type, transactions.transaction_amount AS transactions_transaction_amount, transactions.user_balance AS transactions_user_balance, transactions.user_id AS transactions_user_id 
+FROM transactions 
+WHERE ? = transactions.user_id
+2022-05-10 23:57:56,181 [INFO] sqlalchemy.engine.Engine: [generated in 0.00087s] (1,)
+2022-05-10 23:57:56,183 [INFO] sqlalchemy.engine.Engine: ROLLBACK

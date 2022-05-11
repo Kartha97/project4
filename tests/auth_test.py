@@ -42,3 +42,8 @@ def test_login(application, client):
         assert b"test" in dres.data
 
         db.session.delete(user)
+
+def test_dashboard_access(client):
+    """Test dashboard access"""
+    res = client.get("/dashboard")
+    assert res.status_code == 302
