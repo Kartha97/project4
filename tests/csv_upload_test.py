@@ -26,6 +26,8 @@ def test_csv_upload(application, client):
             for row in csv_file:
                 testvar = row
             assert testvar == {'AMOUNT': '1000', 'TYPE': 'CREDIT'}
-        upload_res = client.post("/transactions/upload", data=testvar, follow_redirects=True)
-        assert upload_res.status_code == 200
 
+
+def test_csv_upload_link_submission(client):
+    upload_res = client.post("/transactions/upload", data='tests/csvtest.csv', follow_redirects=True)
+    assert upload_res.status_code == 200
