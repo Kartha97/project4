@@ -34,6 +34,16 @@ def test_adding_user(application):
         assert db.session.query(User).count() == 0
         assert db.session.query(Transactions).count() == 0
 
+def test_user_initial_balance_without_any_transactions(application):
+    with application.app_context():
+        user = User('abc@gmail.com', 'testtest')
+        db.session.add(user)
+        db.session.commit()
+        assert user.balance == 0
+        db.session.delete(user)
+
+
+
 
 
 
