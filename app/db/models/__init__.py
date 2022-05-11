@@ -14,6 +14,7 @@ class Transactions(db.Model,SerializerMixin):
     transaction_type = db.Column(db.String(300), nullable=True, unique=False)
     transaction_amount = db.Column(db.Integer, nullable=True, unique=False)
     user_balance = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     user = relationship("User", back_populates="transactions", uselist=False)
 
     def __init__(self, amount, type, balance=0):
