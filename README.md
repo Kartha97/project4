@@ -8,6 +8,16 @@
 [![Development Workflow](https://github.com/Kartha97/project3/actions/workflows/dev.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/dev.yml)
 
 * [Developmental Deployment](https://karthat-logging-dev.herokuapp.com/)
+
+## Running Locally
+
+1. To Build with docker compose:
+   docker compose up --build
+2. To run tests, Lint, and Coverage report use this command: pytest --pylint --cov
+
+.pylintrc is the config for pylint, .coveragerc is the config for coverage and setup.py is a config file for pytest
+
+
 ## Setting up CI/CD
 
 The result of this will be that when you create a pull request to merge a branch to master, it will deploy to your
@@ -36,14 +46,6 @@ app/dyno.
 10. change line 32 to have your heroku email in .github/workflows/dev.yml
 11. Push code to your local repo and check for any errors and fix any errors that appear when the workflow is running. You can check the workflow in the
     actions.
-
-## Running Locally
-
-1. To Build with docker compose:
-   docker compose up --build
-2. To run tests, Lint, and Coverage report use this command: pytest --pylint --cov
-
-.pylintrc is the config for pylint, .coveragerc is the config for coverage and setup.py is a config file for pytest
 
 
 ### Future Notes and Resources
