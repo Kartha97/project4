@@ -196,3 +196,19 @@
 2022-05-10 22:53:52,418 [INFO] werkzeug: 192.168.128.1 - - [10/May/2022 22:53:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
 2022-05-10 22:53:52,419 [INFO] werkzeug: 192.168.128.1 - - [10/May/2022 22:53:52] "[36mGET /static/images/navbaricon.jpeg HTTP/1.1[0m" 304 -
 2022-05-10 23:25:11,122 [INFO] werkzeug:  * Detected change in '/home/myuser/tests/auth_test.py', reloading
+2022-05-11 01:28:57,416 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:28:57] "GET /login HTTP/1.1" 200 -
+2022-05-11 01:28:57,434 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:28:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-05-11 01:28:57,435 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:28:57] "[36mGET /static/images/navbaricon.jpeg HTTP/1.1[0m" 304 -
+2022-05-11 01:28:57,449 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:28:57] "[36mGET /static/images/background.jpeg HTTP/1.1[0m" 304 -
+2022-05-11 01:29:02,871 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2022-05-11 01:29:02,942 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:02] "GET /dashboard HTTP/1.1" 200 -
+2022-05-11 01:29:02,955 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:02] "[36mGET /static/images/navbaricon.jpeg HTTP/1.1[0m" 304 -
+2022-05-11 01:29:02,959 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-05-11 01:29:08,449 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:08] "GET /transactions/upload HTTP/1.1" 200 -
+2022-05-11 01:29:08,467 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:08] "[36mGET /static/images/navbaricon.jpeg HTTP/1.1[0m" 304 -
+2022-05-11 01:29:08,468 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-05-11 01:29:26,668 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:26] "[32mPOST /transactions/upload HTTP/1.1[0m" 302 -
+2022-05-11 01:29:26,698 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:26] "GET /dashboard HTTP/1.1" 200 -
+2022-05-11 01:29:26,713 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2022-05-11 01:29:26,713 [INFO] werkzeug: 192.168.128.1 - - [11/May/2022 01:29:26] "[36mGET /static/images/navbaricon.jpeg HTTP/1.1[0m" 304 -
+2022-05-11 01:30:54,100 [INFO] werkzeug:  * Detected change in '/home/myuser/tests/database_test.py', reloading
