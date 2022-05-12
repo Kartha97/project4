@@ -55,6 +55,6 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "karthat-logging-prod" #Must be unique in Heroku
-          heroku_email: "karthaveera.sgs@gmail.com"
+          heroku_app_name: "kartha-prod-project4" #Must be unique in Heroku
+          heroku_email: "kt37@njit.edu"
           usedocker: true

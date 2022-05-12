@@ -2,12 +2,18 @@
 
 [![Production Workflow](https://github.com/Kartha97/project3/actions/workflows/prod.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/prod.yml)
 
-* [Production Deployment](https://karthat-logging-prod.herokuapp.com/)
+* [Production Deployment](https://kartha-prod-project4.herokuapp.com/)
 
 
 [![Development Workflow](https://github.com/Kartha97/project3/actions/workflows/dev.yml/badge.svg)](https://github.com/kaw393939/docker_flask/actions/workflows/dev.yml)
 
-* [Developmental Deployment](https://karthat-logging-dev.herokuapp.com/)
+* [Developmental Deployment](https://kartha-dev-project4.herokuapp.com/)
+
+Made the last commit after the project deadline to update project CI-CD as my heroku application Free dyno hours has been expired.
+
+PFA for the SS below regarding the same.
+![screenshot1](app/static/images/ss1.png)
+![screenshot2](app/static/images/ss2.png)
 
 ## Running Locally
 
@@ -56,4 +62,3 @@ app/dyno.
 * https://wtforms.readthedocs.io/en/3.0.x/
 * https://bootstrap-flask.readthedocs.io/en/stable/
 * https://flask-sqlalchemy.palletsprojects.com/en/2.x/
-* testfdafas
